@@ -3,1053 +3,718 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Фотограф Максим | Свадебная фотосъемка с душой</title>
+    <title>Фотограф Максим | Расписание съемок</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: 'Arial', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: #f0f2f5;
             color: #333;
-            min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 20px auto;
-            background: white;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
-            animation: containerAppear 1s ease-out;
-        }
-
-        @keyframes containerAppear {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Шапка с анимацией */
+        /* Шапка */
         header {
-            background: linear-gradient(90deg, #0f3460, #1a1a2e);
-            padding: 25px 5%;
+            background: #2c3e50;
+            color: white;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 20px;
-            position: relative;
-            z-index: 1;
+            gap: 15px;
         }
 
-        .logo-circle {
-            width: 80px;
-            height: 80px;
-            background: white;
+        .logo img {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e74c3c;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+        }
+
+        nav ul {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: #0f3460;
-            animation: logoPulse 3s infinite ease-in-out;
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+            list-style: none;
+            gap: 25px;
         }
 
-        @keyframes logoPulse {
-            0%, 100% { 
-                transform: scale(1) rotate(0deg);
-                box-shadow: 0 0 20px rgba(255,255,255,0.3);
-            }
-            50% { 
-                transform: scale(1.05) rotate(5deg);
-                box-shadow: 0 0 30px rgba(255,255,255,0.5);
-            }
-        }
-
-        .logo-text h1 {
-            color: white;
-            font-size: 32px;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .logo-text p {
-            color: rgba(255,255,255,0.9);
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
-
-        nav {
-            display: flex;
-            gap: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .nav-btn {
+        nav a {
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: 0.3s;
         }
 
-        .nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+        nav a:hover {
+            background: #34495e;
         }
 
-        .nav-btn:hover::before {
-            left: 100%;
+        /* Основной контент */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .nav-btn:hover {
-            background: rgba(255,255,255,0.25);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        section {
+            background: white;
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* Слайдер с анимацией */
-        .slider-section {
-            padding: 60px 5%;
-            background: #f8f9fa;
-            position: relative;
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e74c3c;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 42px;
-            margin-bottom: 40px;
-            color: #1a1a2e;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-            animation: underlinePulse 2s infinite;
-        }
-
-        @keyframes underlinePulse {
-            0%, 100% { width: 100px; }
-            50% { width: 150px; }
-        }
-
+        /* Слайдер */
         .slider-container {
-            height: 500px;
             position: relative;
+            height: 400px;
             overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            animation: slideUp 1s ease-out 0.3s both;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .slider-track {
+        .slider {
             display: flex;
             height: 100%;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.5s ease;
         }
 
         .slide {
             min-width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
             position: relative;
-            display: flex;
-            align-items: flex-end;
-            padding: 40px;
         }
 
-        .slide::before {
-            content: '';
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-text {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
-        }
-
-        .slide-content {
-            position: relative;
-            z-index: 1;
+            background: rgba(0,0,0,0.7);
             color: white;
-            max-width: 600px;
-            animation: slideContentAppear 1s ease-out 0.5s both;
+            padding: 15px;
         }
 
-        @keyframes slideContentAppear {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .slide-content h3 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .slide-content p {
-            font-size: 20px;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .slider-nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
+        .slider-buttons {
+            text-align: center;
+            margin-top: 15px;
         }
 
         .slider-btn {
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            padding: 10px 20px;
+            margin: 0 10px;
+            background: #e74c3c;
             color: white;
             border: none;
-            border-radius: 30px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 18px;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+            transition: 0.3s;
         }
 
         .slider-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(255,107,107,0.4);
+            background: #c0392b;
         }
 
-        /* Таблица расписания */
-        .schedule-section {
-            padding: 80px 5%;
-            background: white;
-        }
-
-        .schedule-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            animation: tableAppear 1s ease-out 0.5s both;
-        }
-
-        @keyframes tableAppear {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
+        /* Таблица */
         .schedule-table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-top: 30px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .schedule-table thead {
-            background: linear-gradient(90deg, #0f3460, #1a1a2e);
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
         .schedule-table th {
+            background: #3498db;
             color: white;
-            padding: 25px 20px;
+            padding: 15px;
             text-align: left;
-            font-weight: 600;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .schedule-table th::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-            transform: translateX(-100%);
-            animation: headerLine 2s infinite;
-        }
-
-        @keyframes headerLine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .schedule-table tbody tr {
-            background: white;
-            transition: all 0.3s;
-            animation: rowSlideIn 0.6s ease-out forwards;
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-
-        @keyframes rowSlideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .schedule-table tbody tr:nth-child(1) { animation-delay: 0.1s; }
-        .schedule-table tbody tr:nth-child(2) { animation-delay: 0.2s; }
-        .schedule-table tbody tr:nth-child(3) { animation-delay: 0.3s; }
-        .schedule-table tbody tr:nth-child(4) { animation-delay: 0.4s; }
-        .schedule-table tbody tr:nth-child(5) { animation-delay: 0.5s; }
-
-        .schedule-table tbody tr:hover {
-            background: linear-gradient(90deg, rgba(255,107,107,0.05), rgba(78,205,196,0.05));
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            z-index: 1;
-            position: relative;
         }
 
         .schedule-table td {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            font-size: 16px;
-            position: relative;
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
         }
 
-        .schedule-table td:nth-child(5) {
-            font-weight: bold;
-            color: #ff6b6b;
-            font-size: 18px;
+        .schedule-table tr:hover {
+            background: #f5f5f5;
         }
 
-        .badge {
+        .type-badge {
             display: inline-block;
-            padding: 5px 15px;
+            padding: 4px 10px;
             border-radius: 20px;
             font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: bold;
+            color: white;
         }
 
-        .badge-wedding { background: #ff6b6b; color: white; }
-        .badge-portrait { background: #4ecdc4; color: white; }
-        .badge-family { background: #6a11cb; color: white; }
-        .badge-lovestory { background: #ffa36c; color: white; }
+        .wedding { background: #e74c3c; }
+        .portrait { background: #3498db; }
+        .family { background: #2ecc71; }
+        .lovestory { background: #9b59b6; }
 
         /* Галерея */
-        .gallery-section {
-            padding: 80px 5%;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
         .gallery-grid {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .gallery-item {
-            height: 300px;
-            border-radius: 15px;
-            overflow: hidden;
             position: relative;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
             cursor: pointer;
-            animation: galleryItemAppear 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px) scale(0.95);
         }
-
-        @keyframes galleryItemAppear {
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
-        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
-        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
-        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
-        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
-        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
-        .gallery-overlay {
+        .gallery-label {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-title {
+            background: rgba(0,0,0,0.7);
             color: white;
-            font-size: 20px;
-            font-weight: 600;
-            transform: translateY(20px);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover .gallery-title {
-            transform: translateY(0);
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
         }
 
         /* О фотографе */
-        .about-section {
-            padding: 80px 5%;
-            background: white;
-        }
-
         .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            display: flex;
+            gap: 30px;
             align-items: center;
-            animation: aboutAppear 1s ease-out 0.3s both;
         }
 
-        @keyframes aboutAppear {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .about-text {
+            flex: 1;
         }
 
-        .about-text h2 {
-            font-size: 42px;
-            margin-bottom: 25px;
-            color: #1a1a2e;
-            position: relative;
-            display: inline-block;
+        .about-image {
+            flex: 1;
         }
 
-        .about-text h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-        }
-
-        .about-text p {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .photographer-img {
+        .about-image img {
             width: 100%;
-            height: 500px;
-            border-radius: 20px;
+            max-width: 400px;
+            height: 300px;
             object-fit: cover;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: transform 0.5s;
-        }
-
-        .photographer-img:hover {
-            transform: perspective(1000px) rotateY(0deg);
+            border-radius: 8px;
+            display: block;
         }
 
         .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 40px;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            text-align: center;
         }
 
         .stat {
-            text-align: center;
-            padding: 25px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .stat:hover::before {
-            transform: scaleX(1);
-        }
-
-        .stat:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+            padding: 15px;
         }
 
         .stat h3 {
-            font-size: 42px;
-            color: #0f3460;
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 28px;
+            color: #e74c3c;
+            margin-bottom: 5px;
         }
 
-        .stat p {
-            color: #666;
-            font-weight: 500;
+        /* Соцсети */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #34495e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #e74c3c;
+            transform: translateY(-3px);
         }
 
         /* Футер */
         footer {
-            background: linear-gradient(90deg, #0f3460, #1a1a2e);
+            background: #2c3e50;
             color: white;
-            padding: 60px 5% 30px;
+            padding: 30px 5%;
+            margin-top: 40px;
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            animation: footerAppear 1s ease-out both;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
         }
 
-        @keyframes footerAppear {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .footer-section h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
         }
 
-        .footer-info h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #ff6b6b;
-        }
-
-        .footer-info p {
-            margin-bottom: 12px;
+        .footer-section p {
+            margin-bottom: 8px;
             opacity: 0.9;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .social-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 24px;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .social-icon:hover::before {
-            opacity: 1;
-        }
-
-        .social-icon img {
-            width: 28px;
-            height: 28px;
-            filter: invert(1);
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s;
-        }
-
-        .social-icon:hover img {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .social-icon:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .copyright {
             text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
             opacity: 0.7;
             font-size: 14px;
         }
 
-        /* Адаптивность */
-        @media (max-width: 1024px) {
-            .container {
-                margin: 10px;
-                border-radius: 20px;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .photographer-img {
-                order: -1;
-                height: 400px;
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Адаптивность */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                gap: 25px;
-                padding: 20px;
+                gap: 15px;
+                text-align: center;
             }
             
-            nav {
+            nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
             }
             
-            .slider-container {
-                height: 400px;
-            }
-            
-            .slide-content h3 {
-                font-size: 32px;
-            }
-            
-            .schedule-table {
-                font-size: 14px;
-            }
-            
-            .schedule-table th,
-            .schedule-table td {
-                padding: 15px 10px;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            .about-content {
+                flex-direction: column;
             }
             
             .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
             
-            .social-icons {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-circle {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-            }
-            
-            .logo-text h1 {
-                font-size: 24px;
-            }
-            
-            .section-title {
-                font-size: 32px;
+            .footer-content {
+                flex-direction: column;
             }
             
             .slider-container {
                 height: 300px;
             }
-            
-            .slide-content {
-                padding: 20px;
-            }
-            
-            .slide-content h3 {
-                font-size: 24px;
-            }
-            
-            .slide-content p {
-                font-size: 16px;
-            }
-            
-            .gallery-item {
-                height: 250px;
-            }
-        }
-
-        /* Прокрутка страницы индикатор */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-            transform: scaleX(0);
-            transform-origin: left;
-            z-index: 9999;
-            transition: transform 0.1s;
-        }
-        
-        /* Запасные фоны на случай если картинки не загрузятся */
-        .slide-backup {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-        }
-        
-        .gallery-backup {
-            background: linear-gradient(45deg, #ff6b6b, #ffa36c);
         }
     </style>
 </head>
 <body>
-    <!-- Индикатор прокрутки -->
-    <div class="scroll-progress"></div>
+    <!-- Шапка -->
+    <header>
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/1042/1042339.png" 
+                 alt="Логотип фотографа" 
+                 onerror="this.src='https://via.placeholder.com/60x60/2c3e50/ffffff?text=Ф'">
+            <h1>Фотограф Максим</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#slider">Главная</a></li>
+                <li><a href="#schedule">Расписание</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="container">
-        <!-- Шапка -->
-        <header>
-            <div class="logo">
-                <div class="logo-circle">📸</div>
-                <div class="logo-text">
-                    <h1>Максим Иванов</h1>
-                    <p>СВАДЕБНЫЙ ФОТОГРАФ</p>
-                </div>
-            </div>
-            <nav>
-                <a href="#gallery" class="nav-btn">Галерея</a>
-                <a href="#schedule" class="nav-btn">Расписание</a>
-                <a href="#about" class="nav-btn">Обо мне</a>
-                <a href="#contact" class="nav-btn">Контакты</a>
-            </nav>
-        </header>
-
         <!-- Слайдер -->
-        <section class="slider-section">
-            <h2 class="section-title">Мои лучшие работы</h2>
+        <section id="slider">
+            <h2>Лучшие работы</h2>
             <div class="slider-container">
-                <div class="slider-track">
-                    <!-- Слайд 1 - Freepik -->
-                    <div class="slide slide-backup" 
-                         style="background-image: url('https://img.freepik.com/free-photo/bride-and-groom-posing-together_1157-60.jpg?w=1380');">
-                        <div class="slide-content">
-                            <h3>Свадебная магия</h3>
-                            <p>Запечатлеваю самые трогательные моменты вашего особенного дня с любовью и вниманием к деталям</p>
+                <div class="slider">
+                    <!-- Слайд 1 - Проверенная картинка -->
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Свадебная съемка в парке">
+                        <div class="slide-text">
+                            <h3>Свадебная съемка</h3>
+                            <p>Трогательные моменты вашего праздника</p>
                         </div>
                     </div>
                     
-                    <!-- Слайд 2 - Freepik -->
-                    <div class="slide slide-backup" 
-                         style="background-image: url('https://img.freepik.com/free-photo/portrait-of-happy-bride-and-groom_23-2150799242.jpg?w=1380');">
-                        <div class="slide-content">
-                            <h3>Любовные истории</h3>
-                            <p>Романтические фотосессии, которые рассказывают вашу уникальную историю любви</p>
+                    <!-- Слайд 2 - Проверенная картинка -->
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Портретная фотосессия">
+                        <div class="slide-text">
+                            <h3>Портретная съемка</h3>
+                            <p>Индивидуальные портреты с душой</p>
                         </div>
                     </div>
                     
-                    <!-- Слайд 3 - Freepik -->
-                    <div class="slide slide-backup" 
-                         style="background-image: url('https://img.freepik.com/free-photo/happy-family-smiling-together_1157-378.jpg?w=1380');">
-                        <div class="slide-content">
-                            <h3>Семейное счастье</h3>
-                            <p>Искренние моменты семейного тепла и радости, сохраненные для будущих поколений</p>
+                    <!-- Слайд 3 - Проверенная картинка -->
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Семейная фотосессия">
+                        <div class="slide-text">
+                            <h3>Семейная фотосессия</h3>
+                            <p>Счастливые моменты для вашего альбома</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="slider-nav">
-                <button class="slider-btn" id="prevBtn">← Предыдущий</button>
-                <button class="slider-btn" id="nextBtn">Следующий →</button>
+            <div class="slider-buttons">
+                <button class="slider-btn" id="prevBtn">← Назад</button>
+                <button class="slider-btn" id="nextBtn">Вперед →</button>
             </div>
         </section>
 
-        <!-- Таблица расписания -->
-        <section id="schedule" class="schedule-section">
-            <h2 class="section-title">Расписание фотосессий</h2>
-            <div class="schedule-container">
-                <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th>День</th>
-                            <th>Время</th>
-                            <th>Тип съемки</th>
-                            <th>Локация</th>
-                            <th>Стоимость</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Понедельник</td>
-                            <td>10:00 - 14:00</td>
-                            <td><span class="badge badge-portrait">Портретная</span></td>
-                            <td>Студия "Арт-Лофт"</td>
-                            <td>8 500 ₽</td>
-                        </tr>
-                        <tr>
-                            <td>Вторник</td>
-                            <td>12:00 - 18:00</td>
-                            <td><span class="badge badge-wedding">Свадебная</span></td>
-                            <td>Центральный парк</td>
-                            <td>27 000 ₽</td>
-                        </tr>
-                        <tr>
-                            <td>Среда</td>
-                            <td>11:00 - 16:00</td>
-                            <td><span class="badge badge-family">Семейная</span></td>
-                            <td>Загородная усадьба</td>
-                            <td>16 000 ₽</td>
-                        </tr>
-                        <tr>
-                            <td>Четверг</td>
-                            <td>14:00 - 20:00</td>
-                            <td><span class="badge badge-lovestory">Love Story</span></td>
-                            <td>Исторический центр</td>
-                            <td>13 500 ₽</td>
-                        </tr>
-                        <tr>
-                            <td>Пятница</td>
-                            <td>10:00 - 17:00</td>
-                            <td><span class="badge badge-wedding">Свадебная</span></td>
-                            <td>Загс + ресторан</td>
-                            <td>32 000 ₽</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- Расписание -->
+        <section id="schedule">
+            <h2>Расписание фотосессий</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>День недели</th>
+                        <th>Время</th>
+                        <th>Тип съемки</th>
+                        <th>Локация</th>
+                        <th>Стоимость</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="animate">
+                        <td>Понедельник</td>
+                        <td>10:00 - 14:00</td>
+                        <td><span class="type-badge portrait">Портрет</span></td>
+                        <td>Студия</td>
+                        <td>8 000 ₽</td>
+                    </tr>
+                    <tr class="animate">
+                        <td>Вторник</td>
+                        <td>12:00 - 18:00</td>
+                        <td><span class="type-badge wedding">Свадьба</span></td>
+                        <td>Парк</td>
+                        <td>25 000 ₽</td>
+                    </tr>
+                    <tr class="animate">
+                        <td>Среда</td>
+                        <td>11:00 - 16:00</td>
+                        <td><span class="type-badge family">Семья</span></td>
+                        <td>На природе</td>
+                        <td>15 000 ₽</td>
+                    </tr>
+                    <tr class="animate">
+                        <td>Четверг</td>
+                        <td>14:00 - 20:00</td>
+                        <td><span class="type-badge lovestory">Love Story</span></td>
+                        <td>Город</td>
+                        <td>12 000 ₽</td>
+                    </tr>
+                    <tr class="animate">
+                        <td>Пятница</td>
+                        <td>10:00 - 17:00</td>
+                        <td><span class="type-badge wedding">Свадьба</span></td>
+                        <td>Ресторан</td>
+                        <td>30 000 ₽</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <!-- Галерея -->
-        <section id="gallery" class="gallery-section">
-            <h2 class="section-title">Галерея работ</h2>
+        <section id="gallery">
+            <h2>Галерея работ</h2>
             <div class="gallery-grid">
-                <!-- Изображение 1 - Stockvault -->
-                <div class="gallery-item">
-                    <img src="https://www.stockvault.net/data/2007/03/01/100169/preview16.jpg" 
-                         alt="Свадебный портрет" 
-                         loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Свадебная+съемка';">
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Свадебный портрет</div>
-                    </div>
+                <!-- Галерея 1 -->
+                <div class="gallery-item animate">
+                    <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Свадебные кольца">
+                    <div class="gallery-label">Свадебные детали</div>
                 </div>
                 
-                <!-- Изображение 2 - Stockvault -->
-                <div class="gallery-item">
-                    <img src="https://www.stockvault.net/data/2014/08/05/159744/preview16.jpg" 
-                         alt="Момент искренности" 
-                         loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/4ecdc4/ffffff?text=Портрет+на+закате';">
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Портрет на закате</div>
-                    </div>
+                <!-- Галерея 2 -->
+                <div class="gallery-item animate">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Портрет девушки">
+                    <div class="gallery-label">Женский портрет</div>
                 </div>
                 
-                <!-- Изображение 3 - Freepik -->
-                <div class="gallery-item">
-                    <img src="https://img.freepik.com/free-photo/young-couple-in-love_1157-147.jpg?w=800" 
-                         alt="Love Story" 
-                         loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/f093fb/ffffff?text=Love+Story';">
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Love Story</div>
-                    </div>
+                <!-- Галерея 3 -->
+                <div class="gallery-item animate">
+                    <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Семья с детьми">
+                    <div class="gallery-label">Семейное счастье</div>
                 </div>
                 
-                <!-- Изображение 4 - Stockvault -->
-                <div class="gallery-item">
-                    <img src="https://www.stockvault.net/data/2014/05/20/157372/preview16.jpg" 
-                         alt="Семейная фотосессия" 
-                         loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/ff9a9e/ffffff?text=Семейное+фото';">
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Семейная фотосессия</div>
-                    </div>
-                </div>
-                
-                <!-- Изображение 5 - Stockvault -->
-                <div class="gallery-item">
-                    <img src="https://www.stockvault.net/data/2016/06/20/197606/preview16.jpg" 
-                         alt="Индивидуальный портрет" 
-                         loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/a18cd1/ffffff?text=Портрет';">
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Индивидуальный портрет</div>
-                    </div>
-                </div>
-                
-                <!-- Изображение 6 - Freepik -->
-                <div class="gallery-item">
-                    <img src="https://img.freepik.com/free-photo/beautiful-brunette-woman-with-long-hair_23-2150799864.jpg?w=800" 
-                         alt="Креативная съемка" 
-                         loading="lazy"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/6a11cb/ffffff?text=Креативная+съемка';">
-                    <div class="gallery-overlay">
-                        <div class="gallery-title">Креативная съемка</div>
-                    </div>
+                <!-- Галерея 4 -->
+                <div class="gallery-item animate">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Пара в парке">
+                    <div class="gallery-label">Love Story</div>
                 </div>
             </div>
         </section>
 
         <!-- О фотографе -->
-        <section id="about" class="about-section">
+        <section id="about">
+            <h2>О фотографе</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h2>О фотографе</h2>
-                    <p>Привет! Меня зовут Максим, и вот уже более 10 лет я занимаюсь свадебной и портретной фотографией.</p>
-                    <p>Для меня фотография — это не просто профессия, а способ запечатлеть самые искренние моменты человеческих эмоций. Каждая съемка — это уникальная история, которую я помогаю рассказать через объектив.</p>
-                    <p>Мой подход сочетает в себе техническое мастерство и тонкое чувство момента. Я верю, что лучшие кадры рождаются тогда, когда люди забывают о камере и просто наслаждаются моментом.</p>
+                    <p>Привет! Меня зовут Максим, и я профессиональный фотограф с 10-летним опытом. Специализируюсь на свадебной и портретной фотографии.</p>
+                    <p>Моя цель — запечатлеть не просто красивые кадры, а настоящие эмоции и моменты счастья, которые останутся с вами на всю жизнь.</p>
                     
                     <div class="stats">
                         <div class="stat">
-                            <h3>450+</h3>
-                            <p>свадебных съемок</p>
+                            <h3>400+</h3>
+                            <p>фотосессий</p>
                         </div>
                         <div class="stat">
                             <h3>10 лет</h3>
-                            <p>профессионального опыта</p>
+                            <p>опыта</p>
                         </div>
                         <div class="stat">
-                            <h3>98%</h3>
+                            <h3>99%</h3>
                             <p>довольных клиентов</p>
                         </div>
                     </div>
                 </div>
                 
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Фотограф за работой"
+                         onerror="this.src='https://via.placeholder.com/400x300/3498db/ffffff?text=Фотограф'">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Футер -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>📍 Москва, ул. Фотографов, 10</p>
+                <p>📞 +7 (999) 987-65-43</p>
+                <p>✉️ max@photo.ru</p>
+                <p>🕐 Пн-Пт: 9:00 - 20:00</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Социальные сети</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" title="Instagram">IG</a>
+                    <a href="#" class="social-icon" title="Facebook">FB</a>
+                    <a href="#" class="social-icon" title="Telegram">TG</a>
+                    <a href="#" class="social-icon" title="VK">VK</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Услуги</h3>
+                <p>• Свадебная съемка</p>
+                <p>• Портретная фотосессия</p>
+                <p>• Семейные фото</p>
+                <p>• Love Story</p>
+                <p>• Корпоративная съемка</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2024 Фотограф Максим. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Слайдер
+        const slider = document.querySelector('.slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        });
+
+        // Автопрокрутка
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }, 5000);
+
+        // Плавная прокрутка
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Анимация при прокрутке
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Наблюдаем за анимируемыми элементами
+        document.querySelectorAll('.schedule-table tr, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Проверка изображений
+        function checkImages() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.onerror = function() {
+                    console.log('Ошибка загрузки:', img.src);
+                    // Заменяем на placeholder с соответствующим цветом
+                    const color = img.parentElement.classList.contains('logo') ? '2c3e50' : '3498db';
+                    img.src = `https://via.placeholder.com/400x300/${color}/ffffff?text=Фото`;
+                };
+            });
+        }
+
+        // Проверяем при загрузке
+        window.addEventListener('load', checkImages);
+
+        // Кнопка "Наверх"
+        const scrollToTopBtn = document.createElement('button');
+        scrollToTopBtn.innerHTML = '↑';
+        scrollToTopBtn.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        `;
+        document.body.appendChild(scrollToTopBtn);
+
+        scrollToTopBtn.addEventListener('mouseenter', () => {
+            scrollToTopBtn.style.transform = 'scale(1.1)';
+        });
+
+        scrollToTopBtn.addEventListener('mouseleave', () => {
+            scrollToTopBtn.style.transform = 'scale(1)';
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Инициализация
+        updateSlider();
+        
+        // Добавляем плавное появление
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s';
+        
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 100);
+    </script>
+</body>
+</html>
