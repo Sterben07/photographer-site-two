@@ -829,6 +829,15 @@
             z-index: 9999;
             transition: transform 0.1s;
         }
+        
+        /* Запасные фоны на случай если картинки не загрузятся */
+        .slide-backup {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+        
+        .gallery-backup {
+            background: linear-gradient(45deg, #ff6b6b, #ffa36c);
+        }
     </style>
 </head>
 <body>
@@ -858,24 +867,27 @@
             <h2 class="section-title">Мои лучшие работы</h2>
             <div class="slider-container">
                 <div class="slider-track">
-                    <!-- Слайд 1 -->
-                    <div class="slide" style="background-image: url('https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1600&dpr=1');">
+                    <!-- Слайд 1 - Freepik -->
+                    <div class="slide slide-backup" 
+                         style="background-image: url('https://img.freepik.com/free-photo/bride-and-groom-posing-together_1157-60.jpg?w=1380');">
                         <div class="slide-content">
                             <h3>Свадебная магия</h3>
                             <p>Запечатлеваю самые трогательные моменты вашего особенного дня с любовью и вниманием к деталям</p>
                         </div>
                     </div>
                     
-                    <!-- Слайд 2 -->
-                    <div class="slide" style="background-image: url('https://images.pexels.com/photos/1459495/pexels-photo-1459495.jpeg?auto=compress&cs=tinysrgb&w=1600&dpr=1');">
+                    <!-- Слайд 2 - Freepik -->
+                    <div class="slide slide-backup" 
+                         style="background-image: url('https://img.freepik.com/free-photo/portrait-of-happy-bride-and-groom_23-2150799242.jpg?w=1380');">
                         <div class="slide-content">
                             <h3>Любовные истории</h3>
                             <p>Романтические фотосессии, которые рассказывают вашу уникальную историю любви</p>
                         </div>
                     </div>
                     
-                    <!-- Слайд 3 -->
-                    <div class="slide" style="background-image: url('https://images.pexels.com/photos/247322/pexels-photo-247322.jpeg?auto=compress&cs=tinysrgb&w=1600&dpr=1');">
+                    <!-- Слайд 3 - Freepik -->
+                    <div class="slide slide-backup" 
+                         style="background-image: url('https://img.freepik.com/free-photo/happy-family-smiling-together_1157-378.jpg?w=1380');">
                         <div class="slide-content">
                             <h3>Семейное счастье</h3>
                             <p>Искренние моменты семейного тепла и радости, сохраненные для будущих поколений</p>
@@ -948,63 +960,69 @@
         <section id="gallery" class="gallery-section">
             <h2 class="section-title">Галерея работ</h2>
             <div class="gallery-grid">
-                <!-- Изображение 1 -->
+                <!-- Изображение 1 - Stockvault -->
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1" 
+                    <img src="https://www.stockvault.net/data/2007/03/01/100169/preview16.jpg" 
                          alt="Свадебный портрет" 
-                         loading="lazy">
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Свадебная+съемка';">
                     <div class="gallery-overlay">
                         <div class="gallery-title">Свадебный портрет</div>
                     </div>
                 </div>
                 
-                <!-- Изображение 2 -->
+                <!-- Изображение 2 - Stockvault -->
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1458684/pexels-photo-1458684.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1" 
+                    <img src="https://www.stockvault.net/data/2014/08/05/159744/preview16.jpg" 
                          alt="Момент искренности" 
-                         loading="lazy">
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/4ecdc4/ffffff?text=Портрет+на+закате';">
                     <div class="gallery-overlay">
-                        <div class="gallery-title">Момент искренности</div>
+                        <div class="gallery-title">Портрет на закате</div>
                     </div>
                 </div>
                 
-                <!-- Изображение 3 -->
+                <!-- Изображение 3 - Freepik -->
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/948198/pexels-photo-948198.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1" 
-                         alt="Семейное тепло" 
-                         loading="lazy">
+                    <img src="https://img.freepik.com/free-photo/young-couple-in-love_1157-147.jpg?w=800" 
+                         alt="Love Story" 
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/f093fb/ffffff?text=Love+Story';">
                     <div class="gallery-overlay">
-                        <div class="gallery-title">Семейное тепло</div>
+                        <div class="gallery-title">Love Story</div>
                     </div>
                 </div>
                 
-                <!-- Изображение 4 -->
+                <!-- Изображение 4 - Stockvault -->
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/733758/pexels-photo-733758.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1" 
-                         alt="Романтическая прогулка" 
-                         loading="lazy">
+                    <img src="https://www.stockvault.net/data/2014/05/20/157372/preview16.jpg" 
+                         alt="Семейная фотосессия" 
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/ff9a9e/ffffff?text=Семейное+фото';">
                     <div class="gallery-overlay">
-                        <div class="gallery-title">Романтическая прогулка</div>
+                        <div class="gallery-title">Семейная фотосессия</div>
                     </div>
                 </div>
                 
-                <!-- Изображение 5 -->
+                <!-- Изображение 5 - Stockvault -->
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1001914/pexels-photo-1001914.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1" 
-                         alt="Портрет невесты" 
-                         loading="lazy">
+                    <img src="https://www.stockvault.net/data/2016/06/20/197606/preview16.jpg" 
+                         alt="Индивидуальный портрет" 
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/a18cd1/ffffff?text=Портрет';">
                     <div class="gallery-overlay">
-                        <div class="gallery-title">Портрет невесты</div>
+                        <div class="gallery-title">Индивидуальный портрет</div>
                     </div>
                 </div>
                 
-                <!-- Изображение 6 -->
+                <!-- Изображение 6 - Freepik -->
                 <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1035665/pexels-photo-1035665.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1" 
-                         alt="Счастливые моменты" 
-                         loading="lazy">
+                    <img src="https://img.freepik.com/free-photo/beautiful-brunette-woman-with-long-hair_23-2150799864.jpg?w=800" 
+                         alt="Креативная съемка" 
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600/6a11cb/ffffff?text=Креативная+съемка';">
                     <div class="gallery-overlay">
-                        <div class="gallery-title">Счастливые моменты</div>
+                        <div class="gallery-title">Креативная съемка</div>
                     </div>
                 </div>
             </div>
@@ -1035,25 +1053,3 @@
                     </div>
                 </div>
                 
-                <div>
-                    <img src="https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1" 
-                         alt="Максим Иванов - фотограф за работой" 
-                         class="photographer-img"
-                         loading="lazy">
-                </div>
-            </div>
-        </section>
-
-        <!-- Футер -->
-        <footer id="contact">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Контакты</h3>
-                    <p>📍 Москва, ул. Фотографов, 8</p>
-                    <p>📞 +7 (999) 987-65-43</p>
-                    <p>✉️ max@photo-master.ru</p>
-                    <p>🕐 Пн-Сб: 9:00 - 21:00</p>
-                    <p>Вс: по предварительной записи</p>
-                </div>
-                
-                <
